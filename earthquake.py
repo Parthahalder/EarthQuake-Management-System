@@ -199,7 +199,7 @@ checkpoint = ModelCheckpoint('best_model.keras', save_best_only=True)
 
 
 # Training the model
-history = model.fit(X_train, y_train, epochs=10, batch_size=32, validation_split=0.2, verbose=2)
+history = model.fit(X_train, y_train, epochs=100, batch_size=32, validation_split=0.2, verbose=2)
 
 # Evaluating the model
 loss, accuracy = model.evaluate(X_test, y_test, verbose=2)
@@ -220,7 +220,7 @@ print(confusion_matrix(y_test_labels, y_pred))
 
 print("\nClassification Report:")
 print(classification_report(y_test_labels, y_pred, labels=['Significant', 'Moderately Significant', 'Less Significant']))
-history = model.fit(X_train, y_train, epochs=10, batch_size=32, validation_split=0.2, verbose=2)
+history = model.fit(X_train, y_train, epochs=100, batch_size=32, validation_split=0.2, verbose=2)
 plt.plot(history.history['accuracy'])
 plt.plot(history.history['val_accuracy'])
 plt.title('Model accuracy')
@@ -274,7 +274,7 @@ nn_model.compile(optimizer=Adam(learning_rate=0.001), loss='mean_squared_error')
 checkpoint = ModelCheckpoint('best_model.keras', save_best_only=True)
 
 # Training the model
-history = nn_model.fit(X_train, y_train, epochs=10, batch_size=32, validation_split=0.2, verbose=2)
+history = nn_model.fit(X_train, y_train, epochs=100, batch_size=32, validation_split=0.2, verbose=2)
 
 # Predicting on test set
 y_pred_nn = nn_model.predict(X_test)
